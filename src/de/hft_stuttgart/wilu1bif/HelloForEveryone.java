@@ -90,27 +90,28 @@ public class HelloForEveryone {
     }
 
     public static void save(){
-        //Testoutput
-        System.out.println("hat geklappt :D");
         
-        //TO-DO: Variablen in Datei abspeichern
-        File file = new File ("myUserVariables.txt");
-        PrintWriter out = null;
+        File file = new File ("myUserVariables.txt"); //define new file
+        PrintWriter out = null; //define new PrintWriter
         
+        //check if defined file exist. If not, create it
         try {
             if (file.exists()==false) {
                 file.createNewFile();
             }
-            out = new PrintWriter (new FileWriter(file, true));
+            out = new PrintWriter (new FileWriter(file, true)); //open file without overwriting
             
         } catch (IOException error) {
             error.printStackTrace();
         }
         
+        //write the previously made inputs into the opened file
         out.println("Das sind deine persönlichen UserVariablen aus den gemachten Eingaben: \n");
         out.println("Name, Vorname: " + last_name + ", " + name);
         out.println("        Login: " + login);
         out.println("       E-Mail: " + login + "@hft-stuttgart.de");
-        out.close();
+        out.close(); //close file. Else the changes WILL NOT be saved
+        
+        System.out.println("Datei erfolgreich gespeichert. Auf Wiedersehen");
     }
 }
