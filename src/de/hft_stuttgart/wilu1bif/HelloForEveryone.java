@@ -63,7 +63,7 @@ public class HelloForEveryone {
         System.out.println();
         
         //Abfrage Daten abspeichern
-        System.out.println("Möchtest du die Daten in deinem P: Laufwerk ablegen?");
+        System.out.println("Moechtest du die Daten in deinem P: Laufwerk ablegen?");
         System.out.println("Bitte tippe 'yes' oder 'no': ");
         String choice = scanner.nextLine();
         
