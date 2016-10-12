@@ -15,6 +15,11 @@ import java.io.PrintWriter;
 
 public class HelloForEveryone {
 
+    //Globale Variablen deklarieren
+    public static String name;
+    public static String last_name;
+    public static String login;
+    
     //Main Methode Nutzung in diesem Fall lediglich zum Aufruf der eigenen
     //UnterMethoden
     public static void main(String [] args) {
@@ -49,11 +54,11 @@ public class HelloForEveryone {
         
         //Abfrage
         System.out.println("Nachname:");
-        String name      = scanner.nextLine();
+        name      = scanner.nextLine();
         System.out.println("Vorname:");
-        String last_name = scanner.nextLine();
+        last_name = scanner.nextLine();
         System.out.println("Login:");
-        String login     = scanner.nextLine();
+        login     = scanner.nextLine();
         
         System.out.println("Vorname: " + name);
         System.out.println("Nachname: " + last_name);
