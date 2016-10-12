@@ -78,6 +78,6 @@ public class HelloForEveryone {
         //Testoutput
         System.out.println("hat geklappt :D");
         
-        //Beispiel Erik
+        //TO-DO: Variablen in Datei abspeichern
     }
 }
