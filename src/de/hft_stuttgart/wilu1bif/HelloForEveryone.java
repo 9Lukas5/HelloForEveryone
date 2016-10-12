@@ -11,7 +11,11 @@ package de.hft_stuttgart.wilu1bif;
 
 //Paket für Tastatureingabe importieren
 import java.util.Scanner;
+//Pakete fuer Dateiausgabe importieren
 import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
 
 public class HelloForEveryone {
 
@@ -84,5 +88,20 @@ public class HelloForEveryone {
         System.out.println("hat geklappt :D");
         
         //TO-DO: Variablen in Datei abspeichern
+        File file = new File ("myUserVariables.txt");
+        PrintWriter out = null;
+        
+        try {
+            if (file.exists()==false) {
+                file.createNewFile();
+            }
+            out = new PrintWriter (new FileWriter(file, true));
+            
+        } catch (IOException error) {
+            error.printStackTrace();
+        }
+        
+        out.println("huhu");
+        out.close();
     }
 }
