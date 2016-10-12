@@ -101,7 +101,10 @@ public class HelloForEveryone {
             error.printStackTrace();
         }
         
-        out.println("huhu");
+        out.println("Das sind deine persönlichen UserVariablen aus den gemachten Eingaben: \n");
+        out.println("Name, Vorname: " + last_name + ", " + name);
+        out.println("        Login: " + login);
+        out.println("       E-Mail: " + login + "@hft-stuttgart.de");
         out.close();
     }
 }
