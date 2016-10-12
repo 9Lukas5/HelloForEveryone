@@ -58,9 +58,9 @@ public class HelloForEveryone {
         
         //Abfrage
         System.out.println("Nachname:");
-        name      = scanner.nextLine();
+        last_name      = scanner.nextLine();
         System.out.println("Vorname:");
-        last_name = scanner.nextLine();
+        name = scanner.nextLine();
         System.out.println("Login:");
         login     = scanner.nextLine();
         
