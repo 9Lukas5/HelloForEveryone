@@ -78,6 +78,6 @@ public class HelloForEveryone {
         //Testoutput
         System.out.println("hat geklappt :D");
         
-        //PrintWriter writer = new PrintWriter("deine-Daten.txt", "UFT-8");
+        //Beispiel Erik
     }
 }
