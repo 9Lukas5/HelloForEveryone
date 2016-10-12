@@ -72,13 +72,19 @@ public class HelloForEveryone {
         System.out.println();
         
         //Abfrage Daten abspeichern
-        System.out.println("Moechtest du die Daten in deinem P: Laufwerk ablegen?");
-        System.out.println("Bitte tippe 'yes' oder 'no': ");
+        System.out.println("Moechtest du die Daten in deinem P: Laufwerk ablegen? (y/n)");
         String choice = scanner.nextLine();
         
+        //while-Schleife zur Sicherstellung der korrekten Eingabe
+        while (!choice.equals("y") & !choice.equals("n")){
+            System.out.println("Fehler: Keine Gueltige Auswahl getroffen!");
+            System.out.println();
+            System.out.println("Moechtest du die Daten in deinem P: Laufwerk ablegen? (y/n)");
+            choice = scanner.nextLine();
+        }
+        
         //if-else Schleife zur Auswertung der Antwort
-        String DoIt = "yes";
-        if (choice.equals(DoIt)){
+        if (choice.equals("y")){
             save();
         }
     }
