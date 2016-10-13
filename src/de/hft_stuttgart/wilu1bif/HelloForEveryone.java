@@ -72,7 +72,7 @@ public class HelloForEveryone {
         System.out.println();
         
         //Abfrage Daten abspeichern
-        System.out.println("Moechtest du die Daten in deinem P: Laufwerk ablegen? (y/n)");
+        System.out.println("Moechtest du die Daten im aktuellen Arbeitsverzeichnis ablegen? (y/n)");
         String choice = scanner.nextLine();
         
         //while-Schleife zur Sicherstellung der korrekten Eingabe
