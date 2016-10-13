@@ -79,7 +79,7 @@ public class HelloForEveryone {
         while (!choice.equals("y") & !choice.equals("n")){
             System.out.println("Fehler: Keine Gueltige Auswahl getroffen!");
             System.out.println();
-            System.out.println("Moechtest du die Daten in deinem P: Laufwerk ablegen? (y/n)");
+            System.out.println("Moechtest du die Daten im aktuellen Arbeitsverzeichnis ablegen? (y/n)");
             choice = scanner.nextLine();
         }
         
