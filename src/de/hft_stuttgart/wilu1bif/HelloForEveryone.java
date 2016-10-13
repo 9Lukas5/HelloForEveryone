@@ -51,7 +51,11 @@ public class HelloForEveryone {
      * Zweite Teilaufgabe: MyHello
      */
     public static void MyHello() {
-        Scanner scanner = new Scanner(System.in);
+        //local variables
+        String choice;
+        Scanner scanner;
+        
+        scanner = new Scanner(System.in);
         //Aufgabenstellung
         System.out.println("Bitte geben Sie ihren Name, Vornamen und Login"
                             + "an.");
@@ -72,16 +76,16 @@ public class HelloForEveryone {
         System.out.println();
         
         //Abfrage Daten abspeichern
-        System.out.println("Moechtest du die Daten im aktuellen Arbeitsverzeichnis ablegen? (y/n)");
-        String choice = scanner.nextLine();
-        
-        //while-Schleife zur Sicherstellung der korrekten Eingabe
-        while (!choice.equals("y") & !choice.equals("n")){
-            System.out.println("Fehler: Keine Gueltige Auswahl getroffen!");
-            System.out.println();
+        do {
             System.out.println("Moechtest du die Daten im aktuellen Arbeitsverzeichnis ablegen? (y/n)");
             choice = scanner.nextLine();
-        }
+                if (!choice.equals("y") & !choice.equals("n")) {
+                    System.out.println("Fehler: Keine Gueltige Auswahl getroffen!");
+                    System.out.println();
+                }
+        } while (!choice.equals("y") & !choice.equals("n"));
+        
+        
         
         //if-else Schleife zur Auswertung der Antwort
         if (choice.equals("y")){
