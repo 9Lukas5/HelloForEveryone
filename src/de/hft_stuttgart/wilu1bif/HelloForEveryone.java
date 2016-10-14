@@ -23,6 +23,7 @@ public class HelloForEveryone {
     public static String name;
     public static String last_name;
     public static String login;
+    public static String recall;
     
     //Main Methode Nutzung in diesem Fall lediglich zum Aufruf der eigenen
     //UnterMethoden
@@ -38,6 +39,11 @@ public class HelloForEveryone {
         System.out.println("2. Teilaufgabe 'MyHello':");
         //Aufruf der zweiten Teilaufgabe: Methode MyHello()
         MyHello();
+        
+        if (recall.equals("yes"))
+        {
+            save();
+        }
     }
 
     /**
@@ -94,8 +100,20 @@ public class HelloForEveryone {
     }
 
     public static void save(){
+        //local variables
+        Scanner input;
+        File file;
+        String file_path;
         
-        File file = new File ("myUserVariables.txt"); //define new file
+        //initialize some things
+        input = new Scanner (System.in);
+        
+        //Get save path from user
+        System.out.println("Bitte vollstaendigen Pfad zum speichern angeben \n"
+                         + "Beispiel: P:/myVariables.txt");
+        file_path = input.nextLine();
+        
+        file = new File (file_path); //define new file
         PrintWriter out = null; //define new PrintWriter
         
         //check if defined file exist. If not, create it
@@ -106,7 +124,10 @@ public class HelloForEveryone {
             out = new PrintWriter (new FileWriter(file, true)); //open file without overwriting
             
         } catch (IOException error) {
-            error.printStackTrace();
+            //error.printStackTrace();
+            System.out.println("\n Es ist ein Fehler aufgetreten, naechster Verscuch \n");
+            recall = "yes";
+            return;
         }
         
         //write the previously made inputs into the opened file
@@ -117,5 +138,6 @@ public class HelloForEveryone {
         out.close(); //close file. Else the changes WILL NOT be saved
         
         System.out.println("Datei erfolgreich gespeichert. Auf Wiedersehen");
+        recall = null;
     }
 }
