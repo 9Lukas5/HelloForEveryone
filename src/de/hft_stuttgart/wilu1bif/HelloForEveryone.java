@@ -47,10 +47,10 @@ public static String login;
         System.out.println("2. Teilaufgabe 'MyHello':");
         //call 2nd part-task: method myhello()
         dosave = myhello();
-        if (dosave == true) recallSave = save();
+        if (dosave) recallSave = save();
         
         
-        while (recallSave == true) recallSave = save();
+        while (recallSave) recallSave = save();
     }
 
     /**
