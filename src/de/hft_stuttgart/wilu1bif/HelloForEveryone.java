@@ -25,11 +25,17 @@ public class HelloForEveryone
 public static String name;
 public static String last_name;
 public static String login;
-public static String recall;
     
     //main method. Used in this program just to call the sub-methods
     public static void main(String [] args)
     {
+        //local variables
+        Boolean dosave;
+        Boolean recallSave;
+        
+        //initialize s.th.
+        recallSave = false;
+        
         //1st part-task
         System.out.println("1. Teilaufgabe 'HelloWorld':");
         //call 1st part-task: method helloworld()
@@ -40,12 +46,11 @@ public static String recall;
         //2nd part-task
         System.out.println("2. Teilaufgabe 'MyHello':");
         //call 2nd part-task: method myhello()
-        myhello();
+        dosave = myhello();
+        if (dosave == true) recallSave = save();
         
-        while (recall.equals("y"))
-        {
-            save();
-        }
+        
+        while (recallSave == true) recallSave = save();
     }
 
     /**
@@ -59,10 +64,11 @@ public static String recall;
     /**
      * 2nd part-task myhello
      */
-    public static void myhello()
+    public static Boolean myhello()
     {
         //local variables
         String choice;
+        Boolean doSave;
         Scanner in;
         
         in = new Scanner(System.in);
@@ -99,17 +105,20 @@ public static String recall;
         
         //if-else loop to check answer
         if (choice.equals("y")){
-            save();
-        }
+            //save();
+            doSave = true;            
+        } else doSave = false;
+        return (doSave);
     }
 
-    public static void save()
+    public static Boolean save()
     {
         //local variables
         Scanner in;
         File file;
         String file_path;
         PrintWriter out;
+        Boolean recall;
         
         //initialize some things
         in = new Scanner (System.in);
@@ -135,9 +144,8 @@ public static String recall;
             //error.printStackTrace();
             System.out.println("\n Es ist ein Fehler aufgetreten,"
                              + " naechster Verscuch \n");
-            error = null;
-            recall = "y";
-            return;
+            recall = true;
+            return (recall);
         }
         
         //write the previously made inputs into the opened file
@@ -149,6 +157,7 @@ public static String recall;
         out.close(); //close file. Else the changes WILL NOT be saved
         
         System.out.println("Datei erfolgreich gespeichert. Auf Wiedersehen");
-        recall = "n";
+        recall = false;
+        return (recall);
     }
 }
