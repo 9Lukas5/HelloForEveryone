@@ -44,8 +44,8 @@ public static String login;
         
         //2nd part-task
         System.out.println("2. Teilaufgabe 'MyHello':");
-        //call 2nd part-task: method myhello()
-        dosave = myhello();
+        //call 2nd part-task: method myHello()
+        dosave = myHello();
         if (dosave) recallSave = save();
         
         
@@ -55,7 +55,7 @@ public static String login;
     /**
      * 2nd part-task myhello
      */
-    public static boolean myhello()
+    public static boolean myHello()
     {
         //local variables
         String choice;
