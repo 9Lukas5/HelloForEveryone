@@ -38,8 +38,7 @@ public static String login;
         
         //1st part-task
         System.out.println("1. Teilaufgabe 'HelloWorld':");
-        //call 1st part-task: method helloworld()
-        helloworld();
+        System.out.println("Hello World!");
         
         System.out.println(); //one empty line for better look on console
         
@@ -51,14 +50,6 @@ public static String login;
         
         
         while (recallSave) recallSave = save();
-    }
-
-    /**
-     * 1st part-task: helloworld
-     */
-    public static void helloworld()
-    {
-        System.out.println("Hello World!");
     }
 
     /**
