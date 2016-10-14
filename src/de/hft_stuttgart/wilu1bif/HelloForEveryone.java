@@ -28,7 +28,8 @@ public static String login;
 public static String recall;
     
     //main method. Used in this program just to call the sub-methods
-    public static void main(String [] args) {
+    public static void main(String [] args)
+    {
         //1st part-task
         System.out.println("1. Teilaufgabe 'HelloWorld':");
         //call 1st part-task: method helloworld()
