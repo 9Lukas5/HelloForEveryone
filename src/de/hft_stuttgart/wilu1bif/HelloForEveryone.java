@@ -30,8 +30,8 @@ public static String login;
     public static void main(String [] args)
     {
         //local variables
-        Boolean dosave;
-        Boolean recallSave;
+        boolean dosave;
+        boolean recallSave;
         
         //initialize s.th.
         recallSave = false;
@@ -64,11 +64,11 @@ public static String login;
     /**
      * 2nd part-task myhello
      */
-    public static Boolean myhello()
+    public static boolean myhello()
     {
         //local variables
         String choice;
-        Boolean doSave;
+        boolean doSave;
         Scanner in;
         
         in = new Scanner(System.in);
@@ -111,14 +111,14 @@ public static String login;
         return (doSave);
     }
 
-    public static Boolean save()
+    public static boolean save()
     {
         //local variables
         Scanner in;
         File file;
         String file_path;
         PrintWriter out;
-        Boolean recall;
+        boolean recall;
         
         //initialize some things
         in = new Scanner (System.in);
