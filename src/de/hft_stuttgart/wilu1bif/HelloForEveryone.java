@@ -9,71 +9,74 @@
 
 package de.hft_stuttgart.wilu1bif;
 
-//Paket für Tastatureingabe importieren
+//imports
+//packages for user input
 import java.util.Scanner;
-//Pakete fuer Dateiausgabe importieren
+//packages for file output
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 
-public class HelloForEveryone {
+public class HelloForEveryone
+{
 
-    //Globale Variablen deklarieren
-    public static String name;
-    public static String last_name;
-    public static String login;
-    public static String recall;
+//global variables
+public static String name;
+public static String last_name;
+public static String login;
+public static String recall;
     
-    //Main Methode Nutzung in diesem Fall lediglich zum Aufruf der eigenen
-    //UnterMethoden
+    //main method. Used in this program just to call the sub-methods
     public static void main(String [] args) {
-        //Erste Teilaufgabe
+        //1st part-task
         System.out.println("1. Teilaufgabe 'HelloWorld':");
-        //Aufruf der ersten Teilaufgabe: Methode HelloWorld()
-        HelloWorld();
+        //call 1st part-task: method helloworld()
+        helloworld();
         
-        System.out.println(); //Eine Leerzeile Ausgaben zur besseren Darstellung
+        System.out.println(); //one empty line for better look on console
         
-        //Zweite Teilaufgabe
+        //2nd part-task
         System.out.println("2. Teilaufgabe 'MyHello':");
-        //Aufruf der zweiten Teilaufgabe: Methode MyHello()
-        MyHello();
+        //call 2nd part-task: method myhello()
+        myhello();
         
-        if (recall.equals("yes"))
+        while (recall.equals("y"))
         {
             save();
         }
     }
 
     /**
-     * Erste Teilaufgabe: HelloWorld 
+     * 1st part-task: helloworld
      */
-    public static void HelloWorld() {
+    public static void helloworld()
+    {
         System.out.println("Hello World!");
     }
 
     /**
-     * Zweite Teilaufgabe: MyHello
+     * 2nd part-task myhello
      */
-    public static void MyHello() {
+    public static void myhello()
+    {
         //local variables
         String choice;
-        Scanner scanner;
+        Scanner in;
         
-        scanner = new Scanner(System.in);
-        //Aufgabenstellung
+        in = new Scanner(System.in);
+        //ask user for his/her properties
         System.out.println("Bitte geben Sie ihren Name, Vornamen und Login"
                             + "an.");
         
-        //Abfrage
         System.out.println("Nachname:");
-        last_name      = scanner.nextLine();
+        last_name      = in.nextLine();
         System.out.println("Vorname:");
-        name = scanner.nextLine();
+        name = in.nextLine();
         System.out.println("Login:");
-        login     = scanner.nextLine();
+        login     = in.nextLine();
         
+        //print given inputs for control
         System.out.println("Vorname: " + name);
         System.out.println("Nachname: " + last_name);
         System.out.println("Nutzername: " + login);
@@ -81,63 +84,70 @@ public class HelloForEveryone {
         
         System.out.println();
         
-        //Abfrage Daten abspeichern
+        //ask user if the properties should be saved
         do {
-            System.out.println("Moechtest du die Daten im aktuellen Arbeitsverzeichnis ablegen? (y/n)");
-            choice = scanner.nextLine();
+            System.out.println("Moechtest du die Daten im aktuellen"
+                             + "Arbeitsverzeichnis ablegen? (y/n)");
+            choice = in.nextLine();
                 if (!choice.equals("y") & !choice.equals("n")) {
-                    System.out.println("Fehler: Keine Gueltige Auswahl getroffen!");
+                    System.out.println("Fehler: Keine Gueltige Auswahl"
+                                     + "getroffen!");
                     System.out.println();
                 }
         } while (!choice.equals("y") & !choice.equals("n"));
         
-        
-        
-        //if-else Schleife zur Auswertung der Antwort
+        //if-else loop to check answer
         if (choice.equals("y")){
             save();
         }
     }
 
-    public static void save(){
+    public static void save()
+    {
         //local variables
-        Scanner input;
+        Scanner in;
         File file;
         String file_path;
+        PrintWriter out;
         
         //initialize some things
-        input = new Scanner (System.in);
+        in = new Scanner (System.in);
+        out = null; //define new PrintWriter
         
         //Get save path from user
         System.out.println("Bitte vollstaendigen Pfad zum speichern angeben \n"
                          + "Beispiel: P:/myVariables.txt");
-        file_path = input.nextLine();
-        
+        file_path = in.nextLine();
         file = new File (file_path); //define new file
-        PrintWriter out = null; //define new PrintWriter
         
         //check if defined file exist. If not, create it
-        try {
-            if (file.exists()==false) {
-                file.createNewFile();
-            }
-            out = new PrintWriter (new FileWriter(file, true)); //open file without overwriting
+        try
+        {
+            if (file.exists()==false) file.createNewFile();
             
-        } catch (IOException error) {
+            //open file without overwriting
+            out = new PrintWriter (new FileWriter(file, true));
+            
+        }
+        catch (IOException error)
+        {
             //error.printStackTrace();
-            System.out.println("\n Es ist ein Fehler aufgetreten, naechster Verscuch \n");
-            recall = "yes";
+            System.out.println("\n Es ist ein Fehler aufgetreten,"
+                             + " naechster Verscuch \n");
+            error = null;
+            recall = "y";
             return;
         }
         
         //write the previously made inputs into the opened file
-        out.println("Das sind deine persönlichen UserVariablen aus den gemachten Eingaben: \n");
+        out.println("Das sind deine persönlichen UserVariablen aus den"
+                  + "gemachten Eingaben: \n");
         out.println("Name, Vorname: " + last_name + ", " + name);
         out.println("        Login: " + login);
         out.println("       E-Mail: " + login + "@hft-stuttgart.de");
         out.close(); //close file. Else the changes WILL NOT be saved
         
         System.out.println("Datei erfolgreich gespeichert. Auf Wiedersehen");
-        recall = null;
+        recall = "n";
     }
 }
