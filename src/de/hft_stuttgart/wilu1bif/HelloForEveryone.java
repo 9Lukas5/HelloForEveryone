@@ -32,9 +32,11 @@ public static String login;
         //local variables
         boolean dosave;
         boolean recallSave;
+        int i;
         
         //initialize s.th.
         recallSave = false;
+        i = 0;
         
         //1st part-task
         System.out.println("1. Teilaufgabe 'HelloWorld':");
@@ -46,10 +48,22 @@ public static String login;
         System.out.println("2. Teilaufgabe 'MyHello':");
         //call 2nd part-task: method myHello()
         dosave = myHello();
-        if (dosave) recallSave = save();
+        if (dosave)
+        {
+            recallSave = save();
+            i++;
+        }
         
+        while (recallSave && i < 3)
+        {
+            System.out.println("\n" + "Es ist ein Fehler aufgetreten,"
+                             + " naechster Verscuch" + "\n");
+            recallSave = save();
+            i++;
+        }
         
-        while (recallSave) recallSave = save();
+        if (i > 2) System.out.println("\n" +"3x versucht zu speichern. "
+                                    + "Programm wird ohne speichern beendet.");
     }
 
     /**
@@ -133,8 +147,6 @@ public static String login;
         catch (IOException error)
         {
             //error.printStackTrace();
-            System.out.println("\n Es ist ein Fehler aufgetreten,"
-                             + " naechster Verscuch \n");
             recall = true;
             return (recall);
         }
